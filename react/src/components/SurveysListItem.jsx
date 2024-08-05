@@ -1,4 +1,6 @@
 import React from 'react'
+import TButton from './core/TButton'
+import { ArrowTopRightOnSquareIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline'
 
 export default function SurveysListItem({ survey, onDeleteClick }) {
     return (
@@ -18,8 +20,8 @@ export default function SurveysListItem({ survey, onDeleteClick }) {
                     </TButton>
 
                     {survey.id && (
-                        <TButton onClick={onClick} circle Link color="red">
-                            <Trashicon className="w-5 h-5" />
+                        <TButton onClick={onDeleteClick} circle Link color="red">
+                            <TrashIcon className="w-5 h-5" />
                         </TButton>
                     )}
                 </div>

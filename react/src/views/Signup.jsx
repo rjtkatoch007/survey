@@ -17,8 +17,10 @@ export default function Signup() {
 
         axiosClient
             .post("/signup", {
+                name: fullName,
                 email,
-                password
+                password,
+                password_confirmation: passwordConfirmation,
             })
             .then(({ data }) => {
                 setCurrentUser(data.user)
@@ -27,6 +29,7 @@ export default function Signup() {
             .catch((error) => {
                 if (error.response) {
                     const finalErrors = Object.values(error.response.data.errors).reduce((accum, next) => [...accum, ...next], [])
+                    console.log(finalErrors)
                     setError({ __html: finalErrors.join('<br>') })
                 }
                 console.error(error)

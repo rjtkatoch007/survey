@@ -15,22 +15,22 @@ export default function Login() {
 
         axiosClient
             .post("/login", {
-                name: fullName,
                 email,
                 password,
-                password_confirmation: passwordConfirmation,
             })
             .then(({ data }) => {
-                setCurrentUser(data.user)
-                setUserToken(data.token)
+                setCurrentUser(data.user);
+                setUserToken(data.token);
             })
             .catch((error) => {
                 if (error.response) {
-                    const finalErrors = Object.values(error.response.data.errors).reduce((accum, next) => [...accum, ...next], [])
-                    console.log(finalErrors)
-                    setError({ __html: finalErrors.join('<br>') })
+                    const finalErrors = Object.values(error.response.data.errors).reduce(
+                        (accum, next) => [...accum, ...next],
+                        []
+                    );
+                    setError({ __html: finalErrors.join("<br>") });
                 }
-                console.error(error)
+                console.error(error);
             });
     };
 

@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Dashboard from "./views/Dashboard";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
@@ -24,15 +24,7 @@ const router = createBrowserRouter([
                 path: "/surveys",
                 element: <Surveys />,
             },
-            /* {
-                path: "/surveys/create",
-                element: <SurveyView />,
-            },
-            {
-                path: "/surveys/:id",
-                element: <SurveyView />,
-            }, */
-        ],
+        ]
     },
     {
         path: "/",
@@ -46,12 +38,8 @@ const router = createBrowserRouter([
                 path: "/signup",
                 element: <Signup />,
             },
-        ],
-    },
-    /* {
-        path: "/survey/public/:slug",
-        element: <SurveyPublicView />,
-    }, */
+        ]
+    }
 ]);
 export default router
 

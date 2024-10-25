@@ -2,7 +2,7 @@ import { ArrowTopRightOnSquareIcon, PencilIcon, TrashIcon } from "@heroicons/rea
 import React from "react";
 import TButton from "./core/TButton";
 
-function SurveyListItem({ survey }) {
+function SurveyListItem({ survey, onDeleteClick }) {
     return (
         <div className="flex flex-col py-4 px-6 shadow-md bg-white hover:bg-gray-50 h-[470px]">
             <img

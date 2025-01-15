@@ -7,7 +7,6 @@ import GuestLayout from "./components/GuestLayout";
 import DefaultLayout from "./components/Defaultlayout";
 import SurveyView from "./views/SurveyView";
 
-
 const router = createBrowserRouter([
     {
         path: "/",

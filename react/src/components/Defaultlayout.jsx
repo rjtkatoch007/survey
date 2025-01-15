@@ -1,8 +1,8 @@
-import { Fragment } from "react";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Navigate, NavLink, Outlet } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
+import axiosClient from "../axios";
 
 const navigation = [
     { name: "Dashboard", to: "/" },
@@ -22,8 +22,12 @@ export default function DefaultLayout() {
 
     const logout = (ev) => {
         ev.preventDefault();
-        console.log("Logout");
-    }
+        axiosClient.post("/logout").then((res) => {
+            setCurrentUser({});
+            setUserToken(null);
+        });
+    };
+
     return (
         <>
             <div className="min-h-full">
